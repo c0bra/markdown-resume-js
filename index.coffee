@@ -41,6 +41,8 @@ cssFiles = fs.readdirSync path.join('assets', 'css')
 
 # Load in all the stylesheets
 rawstyle = concatCss(cssFiles)
+
+# Minify the css
 style = sqwish.minify(rawstyle)
 
 # Read the file contents in 
@@ -48,6 +50,8 @@ input = fs.readFileSync sourceFile, 'utf8'
 
 # Convert the file to HTML
 resume = markdown.toHTML(input)
+#console.log resume
+#process.exit()
 
 # Get the title of the document
 $ = cheerio.load(resume)
@@ -59,6 +63,9 @@ rendered = mustache.render template,
   style  : style
   resume : resume
 
+#console.log rendered
+#process.exit()
+
 # Get the basename of the source file
 sourceFileBasename = path.basename sourceFile, path.extname(sourceFile)
 
@@ -67,6 +74,8 @@ outputFileName = path.join('output', sourceFileBasename + '.html')
 
 # Write the file contents
 fs.writeFileSync outputFileName, rendered
+
+console.log "Wrote html to: #{outputFileName}"
 
 # console.log output
 

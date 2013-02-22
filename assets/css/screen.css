@@ -59,7 +59,8 @@
 
 @media screen and (min-width: 57em) {
     .container {
-        width: 912px;
+        /*width: 912px;*/
+        width: 960px;
     }
     .resume {
         position:relative;

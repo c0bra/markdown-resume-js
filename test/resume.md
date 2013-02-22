@@ -3,7 +3,7 @@
 
 > [Download PDF](resume.pdf)  
 > [craig@there4development.com](craig@there4development.com)  
-> (999) 888-7777
+> (999) 888-7777  
 
 ---
 
@@ -11,7 +11,7 @@
 
 Progressively evolve cross-platform ideas before impactful infomediaries. Energistically visualize tactical initiatives before cross-media catalysts for change.
 
----
+* * *
 
 ### Skills
 
@@ -24,7 +24,7 @@ Progressively evolve cross-platform ideas before impactful infomediaries. Energi
 * Project Direction
   : Proven ability to lead and manage a wide variety of design and development projects in team and independent situations.
 
----
+***
 
 ### Technical
 
@@ -38,9 +38,9 @@ Progressively evolve cross-platform ideas before impactful infomediaries. Energi
 1. Windows XP/Vista
 1. Linux
 
----
+***
 
-### Experience
+### Experience  
 
 Microsoft
 : *Principal and Creative Lead*
@@ -52,10 +52,10 @@ International Business Machines (IBM)
   __2001-2004__
   Globally re-engineer cross-media schemas through viral methods of empowerment. Proactively grow long-term high-impact human capital and highly efficient innovation. Intrinsicly iterate excellent e-tailers with timely e-markets.
 
----
+***
 
 ### Footer
 
 Craig Davis -- [craig@there4development.com](craig@there4development.com) -- (999) 888-7777
 
----
+***
