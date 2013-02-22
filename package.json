@@ -2,11 +2,23 @@
   "name": "markdown-resume",
   "version": "0.0.0",
   "description": "Turn a simple markdown document into a resume in HTML and PDF",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "keywords": [ "markdown", "html", "pdf", "resume" ],
+  "repository" : {
+    "type" : "git",
+    "url" : "git://github.com/c0bra/markdown-resume-js.git"
   },
-  "repository": "",
+  "bugs" : {
+    "url": "https://github.com/c0bra/markdown-resume-js/issues"
+  },
+  "main": "lib/index.js",
+  "bin": {
+    "markdown-resume": "./bin/markdown-resume.js"
+  },
+  "files": [
+    "assets/css",
+    "assets/templates"
+  ],
+  "preferGlobal": true,
   "author": "Brian Hann",
   "license": "BSD",
   "dependencies": {
@@ -19,5 +31,9 @@
   "devDependencies": {
     "grunt": "*",
     "coffee-script": "*"
-  }
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepublish": "coffee -o . src"
+  },
 }
