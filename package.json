@@ -10,7 +10,11 @@
   "author": "Brian Hann",
   "license": "BSD",
   "dependencies": {
-    "markdown": "*"
+    "commander": "*",
+    "cheerio": "*",
+    "mustache": "*",
+    "markdown": "*",
+    "sqwish": "*"
   },
   "devDependencies": {
     "grunt": "*",
