@@ -17,21 +17,27 @@ This module borrows heavily from the PHP script [markdown-resume](https://github
     npm install -g markdown-resume
 
     # Generate HTML file
-    markdown-resume my-resume-file.md
+    md2resume my-resume-file.md
 
     # Generate HTML file and a pdf
-    markdown-resume --pdf my-resume-file.md
+    md2resume --pdf my-resume-file.md
 
 ## Use as a node module
 
-    var mdresume = require('markdown-resume')
+    var md2resume = require('markdown-resume')
 
     # Generate HTML
-    var output = mdresume.generate('my-resume-file.md');
-    var output = mdresume.generate('my-resume-file.md', { format: 'html' });
+    md2resume.generate('my-resume-file.md', function(err, out) {
+        # ... do something with 'out'
+    });
+
+    # Same as a above
+    md2resume.generate('my-resume-file.md', { format: 'html' }, function(err, out) { ... });
 
     # Generate PDF
-    var output = mdresume.generate('my-resume-file.md', { format: 'pdf' });
+    md2resume.generate('my-resume-file.md', { format: 'pdf' }, function(err, pdf) {
+        # ... do something with pdf
+    });
 
 ## Acknowledgments
 
