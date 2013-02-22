@@ -19,7 +19,7 @@ This module borrows heavily from the PHP script [markdown-resume](https://github
     # Generate HTML file
     md2resume my-resume-file.md
 
-    # Generate HTML file and a pdf
+    # Generate PDF file
     md2resume --pdf my-resume-file.md
 
 ## Use as a node module
