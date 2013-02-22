@@ -1,19 +1,22 @@
 {
   "name": "markdown-resume",
-  "version": "0.0.0",
+  "version": "0.0.12",
   "description": "Turn a simple markdown document into a resume in HTML and PDF",
-  "keywords": [ "markdown", "html", "pdf", "resume" ],
-  "repository" : {
-    "type" : "git",
-    "url" : "git://github.com/c0bra/markdown-resume-js.git"
+  "keywords": [
+    "markdown",
+    "html",
+    "pdf",
+    "resume"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/c0bra/markdown-resume-js.git"
   },
-  "bugs" : {
+  "bugs": {
     "url": "https://github.com/c0bra/markdown-resume-js/issues"
   },
   "main": "lib/markdown-resume.js",
-  "bin": {
-    
-  },
+  "bin": {},
   "files": [
     "assets/css",
     "assets/templates"
