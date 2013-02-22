@@ -2,6 +2,7 @@ VERSION = '0.0.0'
 
 fs = require('fs')
 path = require('path')
+exec = require('child_process').exec
 program = require('commander')
 #markdown = require( "markdown" ).markdown
 marked = require('marked')
@@ -26,7 +27,7 @@ concatCss = (files) ->
 program
   .version(VERSION)
   .usage('[options] [source markdown file]')
-  .option('-f, --format <fmt>', 'Specify the output format: html or pdf [html]')
+  .option('--pdf', 'Include PDF output')
   .option('-t, --template <template>', 'Specify the template html file', )
   .parse(process.argv);
 
@@ -68,6 +69,7 @@ rendered = mustache.render template,
   title  : title
   style  : style
   resume : resume
+  nopdf  : !program.pdf
 
 #console.log rendered
 #process.exit()
@@ -83,6 +85,19 @@ fs.writeFileSync outputFileName, rendered
 
 console.log "Wrote html to: #{outputFileName}"
 
-# console.log output
+# Write the PDF if we're told to
+if program.pdf
+  pdfOutputFilename = path.join('output', sourceFileBasename + '.pdf')
+  pdfRendered = rendered.replace('body class=""', 'body class="pdf"')
+  pdfSource = path.join('output', sourceFileBasename + '-pdf.html')
+  fs.writeFileSync pdfSource, pdfRendered
 
-# ***TODO: How do we make a command-line script that's available in the $PATH?
+  exec 'wkhtmltopdf ' + pdfSource + ' ' + pdfOutputFilename, (err, stdout, stderr) ->
+    if err?
+      console.log "Error writing pdf: #{err}"
+    else
+      console.log "Wrote pdf to #{pdfOutputFilename}"
+
+    fs.unlink pdfSource
+
+    

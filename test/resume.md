@@ -1,8 +1,8 @@
 # Brian Hann
 ## Senior Web Developer, Data Nerd
 
-> [Download PDF](resume.pdf)  
-> [brian.hann@brianhann.com](brian.hann@brianhann.com)
+> [Download PDF](resume.pdf)
+> [me@mysite.com](me@mysite.com)
 > (999) 888-7777
 
 ---
