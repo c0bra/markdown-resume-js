@@ -24,14 +24,14 @@ This module borrows heavily from the PHP script [markdown-resume](https://github
 
 ## Use as a node module
 
-    var markdown-resume = require('markdown-resume')
+    var mdresume = require('markdown-resume')
 
     # Generate HTML
-    var output = markdown-resume.generate('my-resume-file.md');
-    var output = markdown-resume.generate('my-resume-file.md', { format: 'html' });
+    var output = mdresume.generate('my-resume-file.md');
+    var output = mdresume.generate('my-resume-file.md', { format: 'html' });
 
     # Generate PDF
-    var output = markdown-resume.generate('my-resume-file.md', { format: 'pdf' });
+    var output = mdresume.generate('my-resume-file.md', { format: 'pdf' });
 
 ## Acknowledgments
 

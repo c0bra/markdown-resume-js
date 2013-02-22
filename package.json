@@ -10,9 +10,9 @@
   "bugs" : {
     "url": "https://github.com/c0bra/markdown-resume-js/issues"
   },
-  "main": "lib/index.js",
+  "main": "lib/markdown-resume.js",
   "bin": {
-    "markdown-resume": "./bin/markdown-resume.js"
+    "md2resume": "bin/md2resume.js"
   },
   "files": [
     "assets/css",
@@ -26,14 +26,14 @@
     "cheerio": "*",
     "mustache": "*",
     "marked": "*",
-    "sqwish": "*"
+    "sqwish": "*",
+    "temp": "*"
   },
   "devDependencies": {
-    "grunt": "*",
     "coffee-script": "*"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "prepublish": "coffee -o . src"
-  },
+  }
 }
