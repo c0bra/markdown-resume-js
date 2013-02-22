@@ -16,7 +16,9 @@
     "url": "https://github.com/c0bra/markdown-resume-js/issues"
   },
   "main": "lib/markdown-resume.js",
-  "bin": {},
+  "bin": {
+    "md2resume": "./bin/md2resume"
+  },
   "files": [
     "assets/css",
     "assets/templates"
