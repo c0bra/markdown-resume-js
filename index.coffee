@@ -3,11 +3,16 @@ VERSION = '0.0.0'
 fs = require('fs')
 path = require('path')
 program = require('commander')
-markdown = require( "markdown" ).markdown
+#markdown = require( "markdown" ).markdown
+marked = require('marked')
 cheerio = require("cheerio")
 mustache = require('mustache')
 sqwish = require('sqwish')
 
+marked.setOptions
+  breaks: true # Use Github-flavored-markdown (GFM) which uses linebreaks differently
+
+# Method to concatenate a bunch of CSS files
 concatCss = (files) ->
   ret = ""
 
@@ -49,7 +54,8 @@ style = sqwish.minify(rawstyle)
 input = fs.readFileSync sourceFile, 'utf8'
 
 # Convert the file to HTML
-resume = markdown.toHTML(input)
+resume = marked(input)
+
 #console.log resume
 #process.exit()
 

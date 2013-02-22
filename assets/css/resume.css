@@ -1,12 +1,16 @@
-.clearfix {
-  zoom: 1;
-	&:after {
-        display: block;
-        visibility: hidden;
-        height: 0;
-        clear: both;
-        content: ".";
-    }
+
+/* clearfix */
+.container:before,
+.container:after {
+    content:"";
+    display:table;
+}
+.container:after {
+    clear:both;
+}
+/* For IE 6/7 (trigger hasLayout) */
+.container {
+    zoom:1;
 }
 
 body {
@@ -48,6 +52,10 @@ blockquote {
     margin: 0;
     padding: 0;
     line-height: 1.4em;
+}
+
+hr:nth-of-type(1) {
+    margin-top: 32px;
 }
 
 hr {
@@ -133,7 +141,7 @@ ol {
 ol li {
     margin: 0 0 0 1em;
     padding: 0;
-    border-top: 1px solid #CCCCCC;
+    /*border-top: 1px solid #CCCCCC;*/
     width: 100%;
     float: left;
     list-style: none;
