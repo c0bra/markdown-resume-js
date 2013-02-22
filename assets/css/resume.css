@@ -116,6 +116,10 @@ ul li {
     padding: 0;
 }
 
+ul li p {
+    padding: 0 5px;
+}
+
 ul dl {
     margin: .3em 0 0;
     padding: 0;
