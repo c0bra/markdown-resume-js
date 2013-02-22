@@ -102,7 +102,7 @@ generate = (sourceFile, userOpts, callback) ->
     pdfOutputFilename = temp.path({suffix: '.pdf'})
 
     fs.writeFileSync pdfSourceFilename, pdfOutputFilename
-
+    
     exec 'wkhtmltopdf ' + pdfSourceFilename + ' ' + pdfOutputFilename, (err, stdout, stderr) ->
       if err?
         return callback "Error writing pdf: #{err}"

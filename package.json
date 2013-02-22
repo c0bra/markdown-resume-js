@@ -12,7 +12,7 @@
   },
   "main": "lib/markdown-resume.js",
   "bin": {
-    "md2resume": "bin/md2resume.js"
+    
   },
   "files": [
     "assets/css",
@@ -34,6 +34,6 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "prepublish": "coffee -o . src"
+    "prepublish": "cake build"
   }
 }
