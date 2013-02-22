@@ -20,6 +20,7 @@
     "md2resume": "./bin/md2resume"
   },
   "files": [
+    "bin",
     "assets/css",
     "assets/templates"
   ],
