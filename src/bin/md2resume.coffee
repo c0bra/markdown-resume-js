@@ -1,9 +1,10 @@
 #!/usr/bin/env node
 
-fs = require('fs')
-path = require('path')
-program = require('commander')
-md2resume = require(path.join(__dirname, '..', 'lib', 'markdown-resume'))
+fs = require 'fs'
+path = require 'path'
+program = require 'commander'
+lib  = path.join path.dirname(fs.realpathSync(__filename)), '../lib'
+md2resume = require path.join(lib, 'markdown-resume')
 
 # Executable options
 program
@@ -17,6 +18,7 @@ program
 
   if !sourceFile?
     console.log "No source file specified"
+    console.log program.help()
     process.exit()
 
   # Get the basename of the source file
