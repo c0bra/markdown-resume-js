@@ -12,6 +12,8 @@ This module borrows heavily from the PHP script [markdown-resume](https://github
 * Simple Markdown formatting
 
 ## Quickstart
+
+The generated files will be put in the same directory as your source file.
     
     # For usage on the command line
     npm install -g markdown-resume
