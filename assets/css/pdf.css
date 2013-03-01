@@ -42,7 +42,14 @@ body.pdf {
         width: 16%;
         font-style: normal;
     }
+    
+    h3~p {
+        float: left;
+        margin-left: 16%;
+    }
+    
     h3+p {
+        margin-left: inherit;
         float: left;
         width: 84%;
     }
