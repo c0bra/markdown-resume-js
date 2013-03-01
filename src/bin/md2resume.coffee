@@ -39,7 +39,7 @@ program
       if err?
         return console.log err
 
-      fs.writeFile pdfOutputFileName, pdfOutput, (err) ->
+      fs.writeFile pdfOutputFileName, pdfOutput, 'binary', (err) ->
         console.log "Wrote pdf to: #{pdfOutputFileName}"
   else
     md2resume.generate input, { template: program.template }, (err, out) ->

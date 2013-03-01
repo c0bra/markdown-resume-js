@@ -101,13 +101,13 @@ generate = (sourceFile, userOpts, callback) ->
     # Create temporary file to write the PDF to
     pdfOutputFilename = temp.path({suffix: '.pdf'})
 
-    fs.writeFileSync pdfSourceFilename, pdfOutputFilename
+    fs.writeFileSync pdfSourceFilename, pdfRendered
     
     exec 'wkhtmltopdf ' + pdfSourceFilename + ' ' + pdfOutputFilename, (err, stdout, stderr) ->
       if err?
         return callback "Error writing pdf: #{err}"
 
-      pdfContents = fs.readFileSync pdfOutputFilename
+      pdfContents = fs.readFileSync pdfOutputFilename, 'binary'
 
       return callback undefined, pdfContents
 
