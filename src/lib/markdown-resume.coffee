@@ -6,8 +6,8 @@ program = require('commander')
 marked = require('marked')
 cheerio = require("cheerio")
 mustache = require('mustache')
-#sqwish = require('sqwish')
-sass = require('node-sass')
+stylus = require('stylus')
+sqwish = require('sqwish')
 temp = require('temp')
 
 # Set the Markdown processor options
@@ -35,7 +35,7 @@ concatCss = (files) ->
 
   for file in files
     contents = fs.readFileSync path.join(installDir, 'assets', 'css', file), 'utf8'
-    ret += contents
+    ret += "\n" +contents
 
   return ret
 
@@ -72,13 +72,13 @@ generate = (sourceFile, userOpts, callback) ->
   # Load in all the stylesheets
   rawstyle = concatCss cssFiles
 
-  # Minify the css
-  #css = sqwish.minify rawstyle
-
   # Process the sass
-  sass.render rawstyle, (err, css) ->
+  stylus.render rawstyle, (err, css) ->
     if err?
       return callback "Error processing the SASS: #{err}"
+
+    # Minify the css
+    css = sqwish.minify css
 
     # Convert the file to HTML
     resume = marked sourceContents

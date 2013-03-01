@@ -34,7 +34,7 @@
     "mustache": "*",
     "marked": "*",
     "sqwish": "*",
-    "node-sass": "*",
+    "stylus": "*",
     "temp": "*"
   },
   "devDependencies": {
