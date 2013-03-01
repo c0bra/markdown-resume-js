@@ -6,7 +6,6 @@ program = require('commander')
 marked = require('marked')
 cheerio = require("cheerio")
 mustache = require('mustache')
-
 #sqwish = require('sqwish')
 sass = require('node-sass')
 temp = require('temp')
@@ -74,49 +73,51 @@ generate = (sourceFile, userOpts, callback) ->
   rawstyle = concatCss cssFiles
 
   # Minify the css
-  #style = sqwish.minify rawstyle
+  #css = sqwish.minify rawstyle
 
   # Process the sass
-  # sass.render()
+  sass.render rawstyle, (err, css) ->
+    if err?
+      return callback "Error processing the SASS: #{err}"
 
-  # Convert the file to HTML
-  resume = marked sourceContents
+    # Convert the file to HTML
+    resume = marked sourceContents
 
-  # Get the title of the document
-  $ = cheerio.load(resume)
-  title = $('h1').first().text() + ' | ' + $('h2').first().text()
+    # Get the title of the document
+    $ = cheerio.load(resume)
+    title = $('h1').first().text() + ' | ' + $('h2').first().text()
 
-  # Use mustache to turn the generated html into a pretty document with Mustache
-  rendered = mustache.render template,
-    title  : title
-    style  : style
-    resume : resume
-    nopdf  : opts.format != 'pdf'
+    # Use mustache to turn the generated html into a pretty document with Mustache
+    rendered = mustache.render template,
+      title  : title
+      style  : css
+      resume : resume
+      nopdf  : opts.format != 'pdf'
 
-  # Write the PDF if we're told to
-  if opts.format == 'html'
-    return callback undefined, rendered
-  else if opts.format == 'pdf'
-    # Alter the body class in the resume document in order to make it render right in PDF format
-    pdfRendered = rendered.replace('body class=""', 'body class="pdf"')
+    # Write the PDF if we're told to
+    if opts.format == 'html'
+      return callback undefined, rendered
+    else if opts.format == 'pdf'
+      # Alter the body class in the resume document in order to make it render right in PDF format
+      pdfRendered = rendered.replace('body class=""', 'body class="pdf"')
 
-    # Create temporary file to HTML source to
-    pdfSourceFilename = temp.path({suffix: '.html'})
+      # Create temporary file to HTML source to
+      pdfSourceFilename = temp.path({suffix: '.html'})
 
-    # Create temporary file to write the PDF to
-    pdfOutputFilename = temp.path({suffix: '.pdf'})
+      # Create temporary file to write the PDF to
+      pdfOutputFilename = temp.path({suffix: '.pdf'})
 
-    fs.writeFileSync pdfSourceFilename, pdfRendered
+      fs.writeFileSync pdfSourceFilename, pdfRendered
 
-    console.log "PDFSOURCE", pdfSourceFilename
-    
-    exec 'wkhtmltopdf ' + pdfSourceFilename + ' ' + pdfOutputFilename, (err, stdout, stderr) ->
-      if err?
-        return callback "Error writing pdf: #{err}"
+      console.log "PDFSOURCE", pdfSourceFilename
+      
+      exec 'wkhtmltopdf ' + pdfSourceFilename + ' ' + pdfOutputFilename, (err, stdout, stderr) ->
+        if err?
+          return callback "Error writing pdf: #{err}"
 
-      pdfContents = fs.readFileSync pdfOutputFilename, 'binary'
+        pdfContents = fs.readFileSync pdfOutputFilename, 'binary'
 
-      return callback undefined, pdfContents
+        return callback undefined, pdfContents
 
 # Export module
 module.exports =
