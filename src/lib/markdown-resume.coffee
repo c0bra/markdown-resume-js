@@ -6,7 +6,9 @@ program = require('commander')
 marked = require('marked')
 cheerio = require("cheerio")
 mustache = require('mustache')
-sqwish = require('sqwish')
+
+#sqwish = require('sqwish')
+sass = require('node-sass')
 temp = require('temp')
 
 # Set the Markdown processor options
@@ -72,7 +74,10 @@ generate = (sourceFile, userOpts, callback) ->
   rawstyle = concatCss cssFiles
 
   # Minify the css
-  style = sqwish.minify rawstyle
+  #style = sqwish.minify rawstyle
+
+  # Process the sass
+  # sass.render()
 
   # Convert the file to HTML
   resume = marked sourceContents
@@ -102,6 +107,8 @@ generate = (sourceFile, userOpts, callback) ->
     pdfOutputFilename = temp.path({suffix: '.pdf'})
 
     fs.writeFileSync pdfSourceFilename, pdfRendered
+
+    console.log "PDFSOURCE", pdfSourceFilename
     
     exec 'wkhtmltopdf ' + pdfSourceFilename + ' ' + pdfOutputFilename, (err, stdout, stderr) ->
       if err?
