@@ -35,11 +35,13 @@ program
   if program.pdf
     pdfOutputFileName = path.join sourceFileDir, sourceFileBasename + '.pdf'
 
-    pdfOutput = md2resume.generate input, { format: 'pdf', template: program.template }, (err, out) ->
+    md2resume.generate input, { format: 'pdf', template: program.template }, (err, out) ->
       if err?
         return console.log err
 
-      fs.writeFile pdfOutputFileName, pdfOutput, 'binary', (err) ->
+      #console.log "OUT", pdfOutput
+
+      fs.writeFile pdfOutputFileName, out, 'binary', (err) ->
         console.log "Wrote pdf to: #{pdfOutputFileName}"
   else
     md2resume.generate input, { template: program.template }, (err, out) ->
