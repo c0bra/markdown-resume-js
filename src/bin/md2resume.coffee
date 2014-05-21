@@ -29,7 +29,7 @@ program
   # Make the output filename
   outputFileName = path.join sourceFileDir, sourceFileBasename + '.html'
 
-  input = fs.readFileSync sourceFile, 'utf8'  
+  input = fs.readFileSync sourceFile, 'utf8'
 
   # Need to write these files async
   if program.pdf
@@ -45,7 +45,10 @@ program
         console.log "Wrote pdf to: #{pdfOutputFileName}"
   else
     md2resume.generate input, { template: program.template }, (err, out) ->
+      if err?
+        return console.log err
+
       # Write the file contents
       fs.writeFile outputFileName, out, (err) ->
        console.log "Wrote html to: #{outputFileName}"
-  
+
