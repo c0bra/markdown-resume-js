@@ -68,6 +68,8 @@ generate = (sourceFile, userOpts, callback) ->
 
   # Get the list of css asset files
   cssFiles = fs.readdirSync path.join(installDir, 'assets', 'css')
+  cssFiles = cssFiles.filter (f) ->
+    f.indexOf('.') != 0
 
   # Load in all the stylesheets
   rawstyle = concatCss cssFiles
@@ -108,7 +110,7 @@ generate = (sourceFile, userOpts, callback) ->
       pdfOutputFilename = temp.path({suffix: '.pdf'})
 
       fs.writeFileSync pdfSourceFilename, pdfRendered
-      
+
       exec 'wkhtmltopdf ' + pdfSourceFilename + ' ' + pdfOutputFilename, (err, stdout, stderr) ->
         if err?
           return callback "Error writing pdf: #{err}"
