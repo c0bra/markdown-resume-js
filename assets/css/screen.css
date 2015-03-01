@@ -92,13 +92,13 @@
 
     h3~p {
         float: left;
-        margin-left: 16%;
+        margin-left: 20%;
     }
     
     h3+p {
         margin-left: inherit;
         float: left;
-        width: 84%;
+        width: 80%;
     }
     
     ul li {
