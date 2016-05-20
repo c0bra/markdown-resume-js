@@ -1,4 +1,4 @@
-markdown-resume.js
+markdown-resume.js [![Build Status](https://travis-ci.org/JaKXz/markdown-resume-js.svg?branch=master)](https://travis-ci.org/JaKXz/markdown-resume-js) [![Coverage Status](https://coveralls.io/repos/JaKXz/markdown-resume-js/badge.svg?branch=master&service=github)](https://coveralls.io/github/JaKXz/markdown-resume-js?branch=master)
 ==================
 
 Turn a simple markdown document into a resume in HTML and PDF.
@@ -14,7 +14,7 @@ This module borrows heavily from the PHP script [markdown-resume](https://github
 ## Quickstart
 
 The generated files will be put in the same directory as your source file.
-    
+
     # For usage on the command line
     npm install -g markdown-resume
 

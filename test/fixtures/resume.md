@@ -1,7 +1,7 @@
 # Brian Hann
 ## Senior Web Developer, Data Nerd
 
-> [Download PDF](resume.pdf)
+> <span class="no-print">[Download PDF](resume.pdf)</span>
 > [me@mysite.com](me@mysite.com)
 > (999) 888-7777
 

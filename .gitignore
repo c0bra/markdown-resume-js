@@ -6,6 +6,8 @@ lib-cov
 *.out
 *.pid
 *.gz
+*.js
+*.js.map
 
 pids
 logs
@@ -15,3 +17,8 @@ bin
 
 npm-debug.log
 node_modules
+coverage
+.idea
+etc
+resume.html
+resume.pdf
