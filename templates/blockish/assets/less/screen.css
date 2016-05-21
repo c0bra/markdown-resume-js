@@ -1,0 +1,221 @@
+
+
+/*
+  Mobile layout
+  240–479 px
+  Zoomed out below 320 px
+*/
+
+@media screen and (min-width: 15em) {
+    h1 {
+        padding: 40px 0 0 40px;
+    }
+    h2 {
+        padding: 0 30px 0 43px;
+    }
+    blockquote {
+        margin: -20px -20px 10px;
+        padding: 10px 20px 10px;
+    }
+    #profile+p {
+        width: 100%;
+        margin: 0 -10px;
+        padding: 10px;
+    }
+}
+
+
+/*
+  Wide mobile layout
+  480-767 px
+  Zoomed in above 480 px
+*/
+
+@media screen and (min-width: 30em) {
+
+    h1 {
+        margin: -40px -50px 0;
+        padding: 40px 0 0 40px;
+        font-size: 36px;
+        letter-spacing: -1px;
+        font-weight: 900;
+        text-transform: uppercase;
+        background: @headerBackground;
+        border-top: 5px solid #333333;
+        color: #FFFFFF;
+    }
+    h2 {
+        background: @headerBackground;
+        margin: -10px -50px 0;
+        padding: 0 0 40px 43px;
+        font-size: 18px;
+        letter-spacing: -1px;
+        font-weight: normal;
+        color: #F7F2C7;
+    }
+    blockquote {
+      margin-top: -50px;
+    }
+}
+
+
+/*
+  Tablet layout
+  600-911 px
+  Zoomed in above 600 px
+*/
+
+@media screen and (min-width: 37.5em) {
+    body {
+        padding: 20px 0;
+    }
+    blockquote {
+        top: 10px;
+        right: 50px;
+        position: absolute;
+        padding-bottom: 0;
+    }
+    h1 { /* Open up the top section height so we don't collapse on the blockquote */
+        margin-top: -30px;
+        padding-left: 40px;
+    }
+    h2 {
+        padding-bottom: 55px;
+        padding-left: 43px;
+    }
+    ol {
+        margin: 0 0 0 1em;
+    }
+    ol li {
+        width: 50%;
+        margin: 0;
+    }
+    ol li:nth-child(1), ol li:nth-child(2) {
+        border-top: none;
+    }
+
+    blockquote {
+      margin-top: -10px;
+    }
+}
+
+
+/*
+  Widescreen layout
+  912-1887 px
+  Zoomed in above 912 px
+*/
+
+@media screen and (min-width: 57em) {
+    .container {
+        width: 912px;
+    }
+    .resume {
+        position:relative;
+        padding: 40px 50px;
+    }
+    blockquote {
+        top: 40px;
+        right: 50px;
+        position: absolute;
+    }
+    h1 {
+        font-size: 48px;
+        margin-top: -45px;
+    }
+    h2 {
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-weight: normal;
+    }
+    
+    h3 {
+        float: left;
+        width: 16%;
+    }
+
+    h3+p {
+        float: left;
+        width: 84%;
+    }
+    
+    
+    
+    ul li {
+        width: 28%;
+        float: left;
+    }
+    ul dl {
+        dt {
+            font-size: 122%;
+            font-weight: normal;
+            margin-bottom: .75em;
+        }
+        dd {
+            padding: 0 4em 0 0;
+        }
+    }
+
+    ol {
+        float: left;
+        width: 84%;
+        margin: .6em 0 0;
+    }
+
+    ol li {
+        width: 33%;
+        margin: 0;
+    }
+    ol li:nth-child(3n) {
+        width: 34%;
+    }
+    ol li:nth-child(1), ol li:nth-child(2), ol li:nth-child(3) {
+        border-top: none;
+    }
+    
+    dl {
+        margin: .5em 0 0;
+        dt {
+        }
+        dd {
+        }
+        strong {
+            float: right;
+            margin-top: -2em;
+        }
+        em {
+            font-size: 130%;
+            font-style: normal;
+        }
+        
+    }
+
+
+    #profile {
+        display: none;
+    }
+    
+    #profile+p {
+        padding: 5px 300px 20px 33px;
+        margin: -30px -50px 20px;
+        width: (912px - 300px - 33px);
+        float: none;
+        background: #2D6FC7;
+        color: #F7F2C7;
+        font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
+        font-weight: 100;
+    }
+
+}
+
+
+/*
+  Huge-screen layout
+  1888-2520 px
+  Zoomed in above 1920 px
+*/
+
+@media screen and (min-width: 118em) {
+
+
+}

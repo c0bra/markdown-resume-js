@@ -1,0 +1,24 @@
+.clearfix {
+  zoom: 1;
+	&:after {
+        display: block;
+        visibility: hidden;
+        height: 0;
+        clear: both;
+        content: ".";
+    }
+}
+
+body {
+    color: #222;
+    margin: 1em;
+}
+
+#footer {
+  display: none;
+}
+#footer + p {
+  font-size: 13px;
+  font-style: italic;
+  color: #444;
+}
