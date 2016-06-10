@@ -23,6 +23,13 @@ The generated files will be put in the same directory as your source file.
 
     # Generate PDF file
     md2resume --pdf my-resume-file.md
+    
+## Run in Watch Mode w/ Live Reload
+
+    npm install -g light-server
+    light-server -s . -w "your_resume.md # md2resume your_resume.md"
+    
+  Open http://localhost:4000/your_resume.html in a browser and see changes live.
 
 ## Use as a node module
 
