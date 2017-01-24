@@ -23,6 +23,17 @@ The generated files will be put in the same directory as your source file.
 
     # Generate PDF file
     md2resume --pdf my-resume-file.md
+
+## Running with docker
+
+    # Build a docker image
+    docker build -t md2resume .
+
+    # In the directory where your resume is, run the container
+    docker run -v $PWD:/src md2resume resume.md
+
+    # You can also generate the pdf format
+    docker run -v $PWD:/src md2resume -pdf resume.md
     
 ## Run in Watch Mode w/ Live Reload
 
