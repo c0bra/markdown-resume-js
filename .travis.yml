@@ -1,14 +1,9 @@
 language: node_js
 node_js:
   - "stable"
-  - "unstable"
+  - "6"
   - "4"
+  - "0.10"
 
 sudo: false
-matrix:
-  fast_finish: true
-  allow_failures:
-    - node_js: "unstable"
-
-after_success:
-  - "cat ./coverage/lcov.info | ./node_modules/.bin/coveralls"
+after_success: "cat ./coverage/lcov.info | ./node_modules/.bin/coveralls"
