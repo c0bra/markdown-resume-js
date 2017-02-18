@@ -1,4 +1,4 @@
-markdown-resume.js [![Build Status](https://travis-ci.org/JaKXz/markdown-resume-js.svg?branch=master)](https://travis-ci.org/JaKXz/markdown-resume-js) [![Coverage Status](https://coveralls.io/repos/JaKXz/markdown-resume-js/badge.svg?branch=master&service=github)](https://coveralls.io/github/JaKXz/markdown-resume-js?branch=master)
+markdown-resume.js [![Build Status](https://travis-ci.org/c0bra/markdown-resume-js.svg?branch=master)](https://travis-ci.org/c0bra/markdown-resume-js) [![Coverage Status](https://coveralls.io/repos/c0bra/markdown-resume-js/badge.svg?branch=master&service=github)](https://coveralls.io/github/c0bra/markdown-resume-js?branch=master)
 ==================
 
 Turn a simple markdown document into a resume in HTML and PDF.
