@@ -1,3 +1,5 @@
+/* eslint arrow-body-style: 0, arrow-parens: 0, no-shadow: 0 */
+
 /*
  * decaffeinate suggestions:
  * DS102: Remove unnecessary code created because of implicit returns
@@ -9,6 +11,7 @@
 const { all, promisify, reject } = require('bluebird');
 const CleanCSS = require('clean-css');
 const cheerio = require('cheerio');
+const Inliner = require('inliner');
 const less = require('less');
 const marked = promisify(require('marked'));
 const { minify } = require('html-minifier');
@@ -65,5 +68,21 @@ module.exports = (fileName, template = 'default') => {
         style: css,
         resume,
       }));
-    });
+    })
+    .then((html) => new Promise((resolve, reject) => {
+      return new Inliner(html, (err, inlined) => {
+        if (err) return reject(err);
+
+        console.log('inlined', inlined);
+
+        return resolve(inlined);
+      });
+    }));
+
+      // return new Inliner(html)
+      //   .then((inlined) => {
+      //     console.log('html', inlined);
+      //     return inlined;
+      //   })
+      //   .catch(err => console.log(err));
 };
