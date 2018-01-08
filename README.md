@@ -3,8 +3,6 @@ markdown-resume.js [![Build Status](https://travis-ci.org/c0bra/markdown-resume-
 
 Turn a simple markdown document into a resume in HTML and PDF.
 
-This module borrows heavily from the PHP script [markdown-resume](https://github.com/there4/markdown-resume).
-
 ## Features
 
 * PDF generation via wkhtmltopdf
