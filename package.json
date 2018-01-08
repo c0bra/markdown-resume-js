@@ -6,7 +6,10 @@
     "markdown",
     "html",
     "pdf",
-    "resume"
+    "resume",
+    "cv",
+    "node",
+    "js"
   ],
   "repository": {
     "type": "git",
@@ -15,15 +18,22 @@
   "bugs": {
     "url": "https://github.com/c0bra/markdown-resume-js/issues"
   },
-  "main": "lib/markdown-resume.js",
+  "main": "src/markdown-resume.js",
   "bin": {
-    "md2resume": "./bin/md2resume"
+    "md2resume": "./src/md2resume-cli.js"
   },
   "files": [
     "bin",
     "lib",
     "templates"
   ],
+  "scripts": {
+    "prepublish": "npm run test",
+    "tdd": "BLUEBIRD_DEBUG=1 mocha --watch",
+    "pretest": "rimraf coverage/",
+    "test": "mocha",
+    "posttest": "istanbul report text-summary lcov"
+  },
   "author": "Brian Hann",
   "license": "BSD",
   "dependencies": {
@@ -51,17 +61,5 @@
     "rimraf": "^2.5.2",
     "sinon": "^1.17.3",
     "sinon-chai": "^2.8.0"
-  },
-  "scripts": {
-    "prebuild": "npm run clean",
-    "build": "npm run build:lib && npm run build:bin",
-    "build:bin": "cake build:bin",
-    "build:lib": "coffee -o lib src/markdown-resume.coffee",
-    "clean": "rimraf lib/ bin/",
-    "prepublish": "npm run test && npm run build",
-    "tdd": "BLUEBIRD_DEBUG=1 mocha --watch",
-    "pretest": "rimraf coverage/ & coffeelint -f coffeelint.json Cakefile .",
-    "test": "mocha",
-    "posttest": "istanbul report text-summary lcov"
   }
 }
