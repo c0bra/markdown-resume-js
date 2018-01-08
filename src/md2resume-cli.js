@@ -20,6 +20,8 @@ const md2resume = require('./markdown-resume');
 
 const { description, version } = readPkg.sync(path.join(__dirname, '../'));
 
+console.dir(program);
+
 // Executable options
 program
   .version(version)
