@@ -46,6 +46,7 @@
     "less": "^2.6.1",
     "marked": "~0.3.5",
     "mustache": "^2.2.1",
+    "nyc": "^11.4.1",
     "read-pkg": "^3.0.0"
   },
   "devDependencies": {
