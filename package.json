@@ -1,6 +1,6 @@
 {
   "name": "markdown-resume",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "Turn a simple markdown document into a resume in HTML and PDF",
   "keywords": [
     "markdown",
@@ -43,6 +43,7 @@
     "commander": "^2.9.0",
     "html-minifier": "^2.0.0",
     "html-pdf": "^2.0.1",
+    "inliner": "^1.13.1",
     "less": "^2.6.1",
     "marked": "~0.3.5",
     "mustache": "^2.2.1",

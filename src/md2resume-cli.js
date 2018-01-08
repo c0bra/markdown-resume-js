@@ -18,7 +18,7 @@ const readPkg = require('read-pkg');
 
 const md2resume = require('./markdown-resume');
 
-const { description, version } = readPkg.sync(__dirname);
+const { description, version } = readPkg.sync(path.join(__dirname, '../'));
 
 // Executable options
 program
