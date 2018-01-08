@@ -1,9 +1,9 @@
+os:
+  - linux
+  - osx
 language: node_js
 node_js:
-  - "stable"
-  - "6"
-  - "4"
-  - "0.10"
-
-sudo: false
-after_success: "cat ./coverage/lcov.info | ./node_modules/.bin/coveralls"
+  - 9
+  - 8
+  - 6
+after_success: npm run coverage
