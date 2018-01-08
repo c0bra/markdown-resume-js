@@ -20,7 +20,7 @@
   },
   "main": "src/markdown-resume.js",
   "bin": {
-    "md2resume": "./src/md2resume-cli.js"
+    "md2resume": "src/md2resume-cli.js"
   },
   "files": [
     "bin",
@@ -28,6 +28,7 @@
     "templates"
   ],
   "scripts": {
+    "lint": "eslint ./src/ --fix",
     "prepublish": "npm run test",
     "tdd": "BLUEBIRD_DEBUG=1 mocha --watch",
     "pretest": "rimraf coverage/",
@@ -45,7 +46,8 @@
     "html-pdf": "^2.0.1",
     "less": "^2.6.1",
     "marked": "~0.3.5",
-    "mustache": "^2.2.1"
+    "mustache": "^2.2.1",
+    "read-pkg": "^3.0.0"
   },
   "devDependencies": {
     "chai": "^3.5.0",
@@ -56,6 +58,8 @@
     "coffeelint": "^1.15.0",
     "coveralls": "^2.11.8",
     "eslint": "^4.15.0",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.8.0",
     "istanbul": "^0.4.2",
     "juice": "^1.10.0",
     "mocha": "^2.4.5",
