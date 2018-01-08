@@ -73,8 +73,6 @@ module.exports = (fileName, template = 'default') => {
       return new Inliner(html, (err, inlined) => {
         if (err) return reject(err);
 
-        console.log('inlined', inlined);
-
         return resolve(inlined);
       });
     }));
