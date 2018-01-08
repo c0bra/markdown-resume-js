@@ -6,7 +6,10 @@
     "markdown",
     "html",
     "pdf",
-    "resume"
+    "resume",
+    "cv",
+    "node",
+    "js"
   ],
   "repository": {
     "type": "git",
@@ -15,17 +18,25 @@
   "bugs": {
     "url": "https://github.com/c0bra/markdown-resume-js/issues"
   },
-  "main": "lib/markdown-resume.js",
+  "main": "src/markdown-resume.js",
   "bin": {
-    "md2resume": "./bin/md2resume"
+    "md2resume": "src/md2resume-cli.js"
   },
   "files": [
     "bin",
     "lib",
     "templates"
   ],
+  "scripts": {
+    "lint": "eslint ./src/ --fix",
+    "prepublish": "npm run test",
+    "tdd": "BLUEBIRD_DEBUG=1 mocha --watch",
+    "pretest": "rimraf coverage/",
+    "test": "mocha",
+    "posttest": "istanbul report text-summary lcov"
+  },
   "author": "Brian Hann",
-  "license": "BSD",
+  "license": "MIT",
   "dependencies": {
     "bluebird": "^3.3.4",
     "cheerio": "^0.20.0",
@@ -35,7 +46,8 @@
     "html-pdf": "^2.0.1",
     "less": "^2.6.1",
     "marked": "~0.3.5",
-    "mustache": "^2.2.1"
+    "mustache": "^2.2.1",
+    "read-pkg": "^3.0.0"
   },
   "devDependencies": {
     "chai": "^3.5.0",
@@ -45,23 +57,14 @@
     "coffee-script": "^1.10.0",
     "coffeelint": "^1.15.0",
     "coveralls": "^2.11.8",
+    "eslint": "^4.15.0",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.8.0",
     "istanbul": "^0.4.2",
     "juice": "^1.10.0",
     "mocha": "^2.4.5",
     "rimraf": "^2.5.2",
     "sinon": "^1.17.3",
     "sinon-chai": "^2.8.0"
-  },
-  "scripts": {
-    "prebuild": "npm run clean",
-    "build": "npm run build:lib && npm run build:bin",
-    "build:bin": "cake build:bin",
-    "build:lib": "coffee -o lib src/markdown-resume.coffee",
-    "clean": "rimraf lib/ bin/",
-    "prepublish": "npm run test && npm run build",
-    "tdd": "BLUEBIRD_DEBUG=1 mocha --watch",
-    "pretest": "rimraf coverage/ & coffeelint -f coffeelint.json Cakefile .",
-    "test": "mocha",
-    "posttest": "istanbul report text-summary lcov"
   }
 }
