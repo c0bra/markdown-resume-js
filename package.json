@@ -29,17 +29,10 @@
   "scripts": {
     "lint": "eslint ./src/ --fix",
     "prepublish": "npm run test",
-<<<<<<< HEAD
-    "tdd": "BLUEBIRD_DEBUG=1 mocha --watch",
-    "pretest": "rimraf coverage/",
-    "test": "mocha",
-    "posttest": "istanbul report text-summary lcov"
-=======
     "dev": "mocha --watch",
     "pretest": "rimraf coverage/",
     "test": "nyc --reporter=html --reporter=text mocha",
     "coverage": "nyc report --reporter=text-lcov | coveralls"
->>>>>>> feat/remove-coffee
   },
   "author": "Brian Hann",
   "license": "MIT",
