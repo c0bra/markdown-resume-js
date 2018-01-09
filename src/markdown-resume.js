@@ -53,7 +53,10 @@ module.exports = (fileName, template = 'default') => {
       }
 
       return Promise.all([
-        marked(sourceContents),
+        marked(sourceContents, {
+          gfm: true,
+          sanitize: false,
+        }),
         getTemplateStyles(template),
         getTemplateHtml(template),
       ]);
