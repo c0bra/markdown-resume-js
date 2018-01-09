@@ -14,7 +14,9 @@ Progressively evolve cross-platform ideas before impactful infomediaries. Energi
 
 **Corp, Inc**
   *Principal and Creative Lead | 2004 - Current*
-  Intrinsicly transform flexible manufactured products without excellent intellectual capital. Energistically evisculate orthogonal architectures through covalent action items. Assertively incentivize sticky platforms without synergistic materials.
+  Intrinsicly transform flexible manufactured products without excellent intellectual capital. Energistically evisculate orthogonal architectures through covalent action items.
+
+  Assertively incentivize sticky platforms without synergistic materials.
 
 **Globocom LLC**
   *Lead Web Designer | 2001 - 2004*

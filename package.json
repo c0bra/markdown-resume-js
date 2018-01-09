@@ -27,6 +27,7 @@
     "src"
   ],
   "scripts": {
+    "dev": "light-server -s . -w \"src/**,test/**,templates/** # src/cli.js -t standard test/fixtures/standard.md\"",
     "lint": "eslint ./src/ --fix",
     "prepublish": "npm run test",
     "dev": "mocha --watch",
