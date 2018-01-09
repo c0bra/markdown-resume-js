@@ -32,12 +32,12 @@ The generated files will be put in the same directory as your source file.
 
     # You can also generate the pdf format
     docker run -v $PWD:/src md2resume -pdf resume.md
-    
+
 ## Run in Watch Mode w/ Live Reload
 
     npm install -g light-server
     light-server -s . -w "your_resume.md # md2resume your_resume.md"
-    
+
   Open http://localhost:4000/your_resume.html in a browser and see changes live.
 
 ## Use as a node module
@@ -45,16 +45,9 @@ The generated files will be put in the same directory as your source file.
     var md2resume = require('markdown-resume')
 
     # Generate HTML
-    md2resume.generate('my-resume-file.md', function(err, out) {
-        # ... do something with 'out'
-    });
-
-    # Same as a above
-    md2resume.generate('my-resume-file.md', { format: 'html' }, function(err, out) { ... });
-
-    # Generate PDF
-    md2resume.generate('my-resume-file.md', { format: 'pdf' }, function(err, pdf) {
-        # ... do something with pdf
+    md2resume('my-resume-file.md', 'default')
+    .then(html)
+        # ... do something with html
     });
 
 ## Acknowledgments
