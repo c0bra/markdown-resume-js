@@ -38,6 +38,7 @@
   "license": "MIT",
   "dependencies": {
     "bluebird": "^3.3.4",
+    "chalk": "^2.3.0",
     "cheerio": "^0.20.0",
     "clean-css": "^3.4.10",
     "commander": "^2.9.0",

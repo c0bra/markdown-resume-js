@@ -11,6 +11,7 @@
 
 const fs = require('fs');
 const path = require('path');
+const chalk = require('chalk');
 const meow = require('meow');
 const pdf = require('html-pdf');
 const md2resume = require('./markdown-resume');
@@ -39,6 +40,16 @@ Examples
       list: { type: 'boolean', alias: 'l' },
     },
   });
+
+if (cli.flags.list) {
+  console.log('Available templates:');
+  const templateDir = path.join(__dirname, '..', 'templates');
+  const templates = fs.readdirSync(templateDir)
+    .filter(p => fs.lstatSync(path.join(templateDir, p)).isDirectory())
+    .join('\n  ');
+  console.log(`  ${templates}`);
+  process.exit(0);
+}
 
 const sourceFile = cli.input[0];
 if ((sourceFile == null)) {

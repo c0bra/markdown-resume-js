@@ -8,7 +8,7 @@
  */
 
 
-const { all, promisify, reject } = require('bluebird');
+const { promisify } = require('bluebird');
 const CleanCSS = require('clean-css');
 const cheerio = require('cheerio');
 const Inliner = require('inliner');
@@ -36,7 +36,7 @@ function getTemplateStyles(template = 'default') {
     filename: 'resume.less',
   };
   return readFile(path.join(lessDir, 'resume.less'), 'utf-8')
-    .then(lessInput => all([
+    .then(lessInput => Promise.all([
       less.render(lessInput, lessOptions),
       getCommonStyles(),
     ]))
@@ -52,7 +52,7 @@ module.exports = (fileName, template = 'default') => {
         throw new Error('Source file is empty');
       }
 
-      return all([
+      return Promise.all([
         marked(sourceContents),
         getTemplateStyles(template),
         getTemplateHtml(template),
@@ -69,7 +69,7 @@ module.exports = (fileName, template = 'default') => {
       }));
     })
     .then((html) => new Promise((resolve, reject) => {
-      const i = new Inliner(html, (err, inlined) => {
+      const i = new Inliner(html, (err, inlined) => { /* eslint no-unused-vars: 0 */
         if (err) return reject(err);
 
         return resolve(inlined);
