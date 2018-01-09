@@ -76,6 +76,6 @@ md2resume(sourceFile, cli.flags.template)
       return console.log(`Successfully wrote html: ${process.cwd()}/${outputFileName}`);
     });
   }).catch((error) => {
-    console.log(error);
+    console.log(chalk.red(error.message));
     return process.exit(1);
   });

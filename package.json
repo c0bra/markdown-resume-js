@@ -39,10 +39,10 @@
   "dependencies": {
     "bluebird": "^3.3.4",
     "chalk": "^2.3.0",
-    "cheerio": "^0.20.0",
-    "clean-css": "^3.4.10",
+    "cheerio": "^1.0.0-rc.2",
+    "clean-css": "^4.1.9",
     "commander": "^2.9.0",
-    "html-minifier": "^2.0.0",
+    "html-minifier": "^3.5.8",
     "html-pdf": "^2.0.1",
     "inliner": "^1.13.1",
     "less": "^2.6.1",
@@ -53,18 +53,18 @@
     "read-pkg": "^3.0.0"
   },
   "devDependencies": {
-    "chai": "^3.5.0",
-    "chai-as-promised": "^5.2.0",
+    "chai": "^4.1.2",
+    "chai-as-promised": "^7.1.1",
     "chai-things": "^0.2.0",
-    "coveralls": "^2.11.8",
+    "coveralls": "^3.0.0",
     "eslint": "^4.15.0",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-import": "^2.8.0",
     "istanbul": "^0.4.2",
-    "juice": "^1.10.0",
-    "mocha": "^2.4.5",
+    "juice": "^4.2.2",
+    "mocha": "^4.1.0",
     "rimraf": "^2.5.2",
-    "sinon": "^1.17.3",
+    "sinon": "^4.1.4",
     "sinon-chai": "^2.8.0"
   }
 }
