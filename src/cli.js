@@ -9,44 +9,51 @@
  * Full docs: https://github.com/decaffeinate/decaffeinate/blob/master/docs/suggestions.md
  */
 
-
 const fs = require('fs');
 const path = require('path');
+const meow = require('meow');
 const pdf = require('html-pdf');
-const program = require('commander');
-const readPkg = require('read-pkg');
-
 const md2resume = require('./markdown-resume');
 
-const { description, version } = readPkg.sync(path.join(__dirname, '../'));
+const cli = meow(`
+Usage
+  $ md2resume resume.md
 
-console.dir(program);
+Options
+  --template, -t  Template to use
+  --list, -l      List available templates
+  --pdf, -p           Generate PDF resume
 
-// Executable options
-program
-  .version(version)
-  .description(`\
-${description}
-  NOTE: generated files still in ${process.cwd()}/ will be overridden.\
-`).usage('[options] [source markdown file]')
-  .option('--pdf', 'output as PDF as well as HTML')
-  .option('-t, --template <template>', 'Specify the template', 'default')
-  .parse(process.argv);
+Examples
+  $ md2resume resume.md
+  $ md2resume path/to/your_resume.md
+  $ md2resume -t blocks resume.md
+  $ md2resume --pdf resume.md
+`, {
+    flags: {
+      template: {
+        default: 'default',
+        alias: 't',
+      },
+      pdf: { type: 'boolean', alias: 'p' },
+      list: { type: 'boolean', alias: 'l' },
+    },
+  });
 
-const sourceFile = program.args[0];
+const sourceFile = cli.input[0];
 if ((sourceFile == null)) {
   console.warn('Error: No source file specified.');
-  console.log(program.help());
+  console.log(cli.help);
   process.exit();
 }
 
-md2resume(sourceFile, program.template)
+md2resume(sourceFile, cli.flags.template)
   .then((htmlContents) => {
     const sourceFileBasename = path.basename(sourceFile, path.extname(sourceFile));
 
-    if (program.pdf) {
+    if (cli.flags.pdf) {
       const pdfOutputFileName = `${sourceFileBasename}.pdf`;
-      pdf.create(htmlContents).toFile(pdfOutputFileName, (error, res) => {
+      return pdf.create(htmlContents).toFile(pdfOutputFileName, (error, res) => {
         if (error) { throw error; }
         return console.log(`Successfully wrote pdf file: ${res.filename}`);
       });
@@ -58,6 +65,6 @@ md2resume(sourceFile, program.template)
       return console.log(`Successfully wrote html: ${process.cwd()}/${outputFileName}`);
     });
   }).catch((error) => {
-    console.error(error);
+    console.log(error);
     return process.exit(1);
   });

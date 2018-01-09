@@ -20,7 +20,7 @@
   },
   "main": "src/markdown-resume.js",
   "bin": {
-    "md2resume": "src/md2resume-cli.js"
+    "md2resume": "src/cli.js"
   },
   "files": [
     "templates",
@@ -46,6 +46,7 @@
     "inliner": "^1.13.1",
     "less": "^2.6.1",
     "marked": "~0.3.5",
+    "meow": "^4.0.0",
     "mustache": "^2.2.1",
     "nyc": "^11.4.1",
     "read-pkg": "^3.0.0"

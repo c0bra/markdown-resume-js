@@ -44,9 +44,8 @@ function getTemplateStyles(template = 'default') {
 }
 
 module.exports = (fileName, template = 'default') => {
-  if (!isMarkdown(fileName)) {
-    return reject(new Error('Only markdown files are supported'));
-  }
+  if (!isMarkdown(fileName)) return Promise.reject(new Error('Only markdown files are supported'));
+
   return readFile(path.resolve('./', fileName), 'utf-8')
     .then((sourceContents) => {
       if ((sourceContents == null) || (sourceContents.trim() === '')) {
@@ -59,7 +58,7 @@ module.exports = (fileName, template = 'default') => {
         getTemplateHtml(template),
       ]);
     })
-    .spread((resume, css, tmpl) => {
+    .then(([resume, css, tmpl]) => {
       const $ = cheerio.load(resume);
       const title = `${$('h1').first().text()} | ${$('h2').first().text()}`;
 
@@ -70,17 +69,10 @@ module.exports = (fileName, template = 'default') => {
       }));
     })
     .then((html) => new Promise((resolve, reject) => {
-      return new Inliner(html, (err, inlined) => {
+      const i = new Inliner(html, (err, inlined) => {
         if (err) return reject(err);
 
         return resolve(inlined);
       });
     }));
-
-      // return new Inliner(html)
-      //   .then((inlined) => {
-      //     console.log('html', inlined);
-      //     return inlined;
-      //   })
-      //   .catch(err => console.log(err));
 };
