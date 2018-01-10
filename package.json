@@ -27,10 +27,9 @@
     "src"
   ],
   "scripts": {
-    "dev": "light-server -s . -w \"src/**,test/**,templates/** # src/cli.js -t standard test/fixtures/standard.md\"",
+    "dev": "mocha --watch",
     "lint": "eslint ./src/ --fix",
     "prepublish": "npm run test",
-    "dev": "mocha --watch",
     "pretest": "rimraf coverage/",
     "test": "nyc --reporter=html --reporter=text mocha",
     "coverage": "nyc report --reporter=text-lcov | coveralls"
