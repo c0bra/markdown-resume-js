@@ -13,7 +13,7 @@ const fs = require('fs');
 const path = require('path');
 const chalk = require('chalk');
 const meow = require('meow');
-const pdf = require('html-pdf');
+const generatePdf = require('./pdf');
 const md2resume = require('./markdown-resume');
 
 const cli = meow(`
@@ -64,9 +64,9 @@ md2resume(sourceFile, cli.flags.template)
 
     if (cli.flags.pdf) {
       const pdfOutputFileName = `${sourceFileBasename}.pdf`;
-      return pdf.create(htmlContents).toFile(pdfOutputFileName, (error, res) => {
-        if (error) { throw error; }
-        return console.log(`Successfully wrote pdf file: ${res.filename}`);
+      return generatePdf(htmlContents).then((stream) => {
+        stream.pipe(fs.createWriteStream(pdfOutputFileName));
+        console.log(`Successfully wrote pdf file: ${pdfOutputFileName}`);
       });
     }
 
