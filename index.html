@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Markdown-resume-js by c0bra</title>
+    <title>markdown-resume</title>
 
     <link rel="stylesheet" href="stylesheets/styles.css">
     <link rel="stylesheet" href="stylesheets/pygment_trac.css">
@@ -11,77 +11,31 @@
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+
+    <style>
+      body {
+        display: flex;
+        height: 100vh;
+        padding: 0;
+        margin: 0;
+        width: 100vw;
+
+        justify-content: center;
+        align-content: center;
+      }
+
+      body > div {
+        border: 1px solid red;
+        width: 100%;
+      }
+    </style>
   </head>
   <body>
-    <div class="wrapper">
-      <header>
-        <h1>Markdown-resume-js</h1>
-        <p>Turn a simple markdown document into a resume in HTML and PDF</p>
-
-        <p class="view"><a href="https://github.com/c0bra/markdown-resume-js">View the Project on GitHub <small>c0bra/markdown-resume-js</small></a></p>
-
-
-        <ul>
-          <li><a href="https://github.com/c0bra/markdown-resume-js/zipball/master">Download <strong>ZIP File</strong></a></li>
-          <li><a href="https://github.com/c0bra/markdown-resume-js/tarball/master">Download <strong>TAR Ball</strong></a></li>
-          <li><a href="https://github.com/c0bra/markdown-resume-js">View On <strong>GitHub</strong></a></li>
-        </ul>
-      </header>
-      <section>
-        <h1>markdown-resume.js</h1>
-
-<p>Turn a simple markdown document into a resume in HTML and PDF.</p>
-
-<p>This module borrows heavily from the PHP script <a href="https://github.com/there4/markdown-resume">markdown-resume</a>.</p>
-
-<h2>Features</h2>
-
-<ul>
-<li>PDF generation via wkhtmltopdf</li>
-<li>Responsive design for multiple device viewport sizes</li>
-<li>Simple Markdown formatting</li>
-</ul><h2>Quickstart</h2>
-
-<p>The generated files will be put in the same directory as your source file.</p>
-
-<pre><code># For usage on the command line
-npm install -g markdown-resume
-
-# Generate HTML file
-md2resume my-resume-file.md
-
-# Generate PDF file
-md2resume --pdf my-resume-file.md
-</code></pre>
-
-<h2>Use as a node module</h2>
-
-<pre><code>var md2resume = require('markdown-resume')
-
-# Generate HTML
-md2resume.generate('my-resume-file.md', function(err, out) {
-    # ... do something with 'out'
-});
-
-# Same as a above
-md2resume.generate('my-resume-file.md', { format: 'html' }, function(err, out) { ... });
-
-# Generate PDF
-md2resume.generate('my-resume-file.md', { format: 'pdf' }, function(err, pdf) {
-    # ... do something with pdf
-});
-</code></pre>
-
-<h2>Acknowledgments</h2>
-
-<p>As above, this library steals pretty much everything from <a href="https://github.com/there4/markdown-resume">markdown-resume</a>.</p>
-      </section>
-      <footer>
-        <p>This project is maintained by <a href="https://github.com/c0bra">c0bra</a></p>
-        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
-      </footer>
+    <div>
+      Markdown
     </div>
-    <script src="javascripts/scale.fix.js"></script>
-    
+    <div>
+      PDF
+    </div>
   </body>
 </html>
