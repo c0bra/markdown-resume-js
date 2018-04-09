@@ -63,3 +63,5 @@ typings/
 # Test files
 ./*.html
 ./*,.pdf
+
+.tmp/
